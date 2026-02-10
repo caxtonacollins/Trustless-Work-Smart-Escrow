@@ -17,19 +17,18 @@ impl EscrowContract {
 
     pub fn deploy(
         env: Env,
-        platform_address: Address,
+        signer: Address,
         wasm_hash: BytesN<32>,
         salt: BytesN<32>,
         init_fn: Symbol,
         init_args: Vec<Val>,
         constructor_args: Vec<Val>,
     ) -> Result<(Address, Val), ContractError> {
-        platform_address.require_auth();
-
-        let escrow = EscrowManager::get_escrow(&env)?;
-        if platform_address != escrow.roles.platform_address {
-            return Err(ContractError::OnlyPlatformAddressExecuteThisFunction);
+        if EscrowManager::get_escrow(&env).is_ok() {
+            return Err(ContractError::EscrowAlreadyInitialized);
         }
+
+        signer.require_auth();
 
         let deployer = env.current_contract_address();
         let deployed_address = env
