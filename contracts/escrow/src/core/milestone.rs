@@ -55,7 +55,7 @@ impl MilestoneManager {
 
     pub fn change_milestone_approved_flags(
         e: &Env,
-        milestone_indexes: Vec<i128>,
+        milestone_indexes: Vec<u32>,
         approver: Address,
     ) -> Result<Escrow, ContractError> {
         approver.require_auth();

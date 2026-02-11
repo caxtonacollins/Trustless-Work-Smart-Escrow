@@ -83,7 +83,7 @@ pub fn validate_withdraw_remaining_funds_conditions(
 #[inline]
 pub fn validate_dispute_flag_change_conditions(
     escrow: &Escrow,
-    milestone_index: i128,
+    milestone_index: u32,
     signer: &Address,
 ) -> Result<(), ContractError> {
     if escrow.milestones.is_empty() {

@@ -168,7 +168,7 @@ impl EscrowContract {
 
     pub fn approve_milestones(
         e: &Env,
-        milestone_indexes: Vec<i128>,
+        milestone_indexes: Vec<u32>,
         approver: Address,
     ) -> Result<(), ContractError> {
         let escrow = MilestoneManager::change_milestone_approved_flags(
@@ -204,7 +204,7 @@ impl EscrowContract {
 
     pub fn dispute_milestone(
         e: &Env,
-        milestone_index: i128,
+        milestone_index: u32,
         signer: Address,
     ) -> Result<(), ContractError> {
         let escrow = DisputeManager::dispute_milestone(e, milestone_index, signer)?;
