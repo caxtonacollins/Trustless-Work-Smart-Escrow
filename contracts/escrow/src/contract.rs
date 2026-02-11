@@ -15,7 +15,7 @@ pub struct EscrowContract;
 impl EscrowContract {
     pub fn __constructor() {}
 
-    pub fn deploy(
+    pub fn tw_new_multi_release_escrow(
         env: Env,
         signer: Address,
         wasm_hash: BytesN<32>,
