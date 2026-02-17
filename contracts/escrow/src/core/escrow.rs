@@ -74,7 +74,7 @@ impl EscrowManager {
                 milestone.amount as i128,
                 escrow.platform_fee,
             )?;
-            let platform_address = escrow.roles.platform_address.clone();
+            let platform_address = escrow.roles.platform.clone();
 
             if trustless_fee_share > 0 {
                 token_client.transfer(

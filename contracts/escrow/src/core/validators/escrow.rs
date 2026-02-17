@@ -80,10 +80,10 @@ fn validate_escrow_conditions(
         let existing = existing_escrow.ok_or(ContractError::EscrowNotFound)?;
         let caller = platform_address
             .ok_or(ContractError::OnlyPlatformAddressExecuteThisFunction)?;
-        if caller != &existing.roles.platform_address {
+        if caller != &existing.roles.platform {
             return Err(ContractError::OnlyPlatformAddressExecuteThisFunction);
         }
-        if existing.roles.platform_address != new_escrow.roles.platform_address {
+        if existing.roles.platform != new_escrow.roles.platform {
             return Err(ContractError::PlatformAddressCannotBeChanged);
         }
 

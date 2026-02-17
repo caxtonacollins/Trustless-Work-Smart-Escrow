@@ -14,7 +14,7 @@ fn test_initialize_escrow_rejects_platform_fee_exceeding_aggregate_cap() {
 
     let approver_address = Address::generate(&env);
     let admin = Address::generate(&env);
-    let platform_address = Address::generate(&env);
+    let platform = Address::generate(&env);
     let service_provider_address = Address::generate(&env);
     let release_signer_address = Address::generate(&env);
     let dispute_resolver_address = Address::generate(&env);
@@ -25,7 +25,7 @@ fn test_initialize_escrow_rejects_platform_fee_exceeding_aggregate_cap() {
     let roles: Roles = Roles {
         approver: approver_address.clone(),
         service_provider: service_provider_address.clone(),
-        platform_address: platform_address.clone(),
+        platform: platform.clone(),
         release_signer: release_signer_address.clone(),
         dispute_resolver: dispute_resolver_address.clone(),
         observers: vec![&env],
@@ -79,7 +79,7 @@ fn test_initialize_escrow() {
 
     let approver_address = Address::generate(&env);
     let admin = Address::generate(&env);
-    let platform_address = Address::generate(&env);
+    let platform = Address::generate(&env);
     let service_provider_address = Address::generate(&env);
     let release_signer_address = Address::generate(&env);
     let dispute_resolver_address = Address::generate(&env);
@@ -91,7 +91,7 @@ fn test_initialize_escrow() {
     let roles: Roles = Roles {
         approver: approver_address.clone(),
         service_provider: service_provider_address.clone(),
-        platform_address: platform_address.clone(),
+        platform: platform.clone(),
         release_signer: release_signer_address.clone(),
         dispute_resolver: dispute_resolver_address.clone(),
         observers: vec![&env],
@@ -153,8 +153,8 @@ fn test_initialize_escrow() {
         escrow_properties.roles.service_provider
     );
     assert_eq!(
-        escrow.roles.platform_address,
-        escrow_properties.roles.platform_address
+        escrow.roles.platform,
+        escrow_properties.roles.platform
     );
     assert_eq!(escrow.platform_fee, platform_fee);
     assert_eq!(escrow.milestones, escrow_properties.milestones);
@@ -179,7 +179,7 @@ fn test_initialize_escrow_no_milestones() {
     let admin = Address::generate(&env);
     let approver_address = Address::generate(&env);
     let service_provider_address = Address::generate(&env);
-    let platform_address = Address::generate(&env);
+    let platform = Address::generate(&env);
     let release_signer_address = Address::generate(&env);
     let dispute_resolver_address = Address::generate(&env);
 
@@ -192,7 +192,7 @@ fn test_initialize_escrow_no_milestones() {
     let roles: Roles = Roles {
         approver: approver_address.clone(),
         service_provider: service_provider_address.clone(),
-        platform_address: platform_address.clone(),
+        platform: platform.clone(),
         release_signer: release_signer_address.clone(),
         dispute_resolver: dispute_resolver_address.clone(),
         observers: vec![&env],

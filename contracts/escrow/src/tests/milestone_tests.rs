@@ -16,7 +16,7 @@ fn test_change_milestone_status_and_approved_flag() {
     let approver_address = Address::generate(&env);
     let service_provider_address = Address::generate(&env);
     let admin = Address::generate(&env);
-    let platform_address = Address::generate(&env);
+    let platform = Address::generate(&env);
     let release_signer_address = Address::generate(&env);
     let dispute_resolver_address = Address::generate(&env);
     let platform_fee = 3 * 100;
@@ -28,7 +28,7 @@ fn test_change_milestone_status_and_approved_flag() {
     let roles: Roles = Roles {
         approver: approver_address.clone(),
         service_provider: service_provider_address.clone(),
-        platform_address: platform_address.clone(),
+        platform: platform.clone(),
         release_signer: release_signer_address.clone(),
         dispute_resolver: dispute_resolver_address.clone(),
         observers: vec![&env],
@@ -249,7 +249,7 @@ fn test_approve_multiple_milestones_at_once() {
     let roles = Roles {
         approver: approver.clone(),
         service_provider: service_provider.clone(),
-        platform_address: platform.clone(),
+        platform: platform.clone(),
         release_signer: release_signer.clone(),
         dispute_resolver: dispute_resolver.clone(),
         observers: vec![&env],

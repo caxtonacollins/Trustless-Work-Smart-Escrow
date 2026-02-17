@@ -69,7 +69,7 @@ impl DisputeManager {
         if platform_fee > 0 {
             token_client.transfer(
                 &contract_address,
-                &escrow.roles.platform_address,
+                &escrow.roles.platform,
                 &platform_fee,
             );
         }
@@ -142,7 +142,7 @@ impl DisputeManager {
         if platform_fee > 0 {
             token_client.transfer(
                 &contract_address,
-                &escrow.roles.platform_address,
+                &escrow.roles.platform,
                 &platform_fee,
             );
         }
