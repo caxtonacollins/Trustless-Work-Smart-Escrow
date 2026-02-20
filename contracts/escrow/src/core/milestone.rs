@@ -48,7 +48,10 @@ impl MilestoneManager {
                 .set(idx, milestone_to_update);
         }
 
-        e.storage().instance().set(&DataKey::Escrow, &existing_escrow);
+        e.storage().persistent().set(&DataKey::Escrow, &existing_escrow);
+        e.storage()
+            .persistent()
+            .extend_ttl(&DataKey::Escrow, 17280, 31536000);
 
         Ok(existing_escrow)
     }
@@ -85,7 +88,10 @@ impl MilestoneManager {
                 .set(idx, milestone_to_update);
         }
 
-        e.storage().instance().set(&DataKey::Escrow, &existing_escrow);
+        e.storage().persistent().set(&DataKey::Escrow, &existing_escrow);
+        e.storage()
+            .persistent()
+            .extend_ttl(&DataKey::Escrow, 17280, 31536000);
 
         Ok(existing_escrow)
     }
